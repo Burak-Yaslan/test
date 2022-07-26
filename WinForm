@@ -1,0 +1,50 @@
+namespace WinFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            boxRegion.Items.Add("Marmara");
+            boxRegion.Items.Add("Karadeniz");
+            boxRegion.Items.Add("Ege");
+
+
+        }
+
+        private void boxRegion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            boxCity.Items.Clear();
+            if (boxRegion.SelectedItem == "Marmara")
+            {
+                boxCity.Items.Add("İstanbul");
+                boxCity.Items.Add("Tekirdağ");
+                boxCity.Items.Add("Bursa");
+            }
+            else if (boxRegion.SelectedItem == "Karadeniz")
+            {
+                boxCity.Items.Add("Trabzon");
+                boxCity.Items.Add("Rize");
+                boxCity.Items.Add("Samsun");
+            }
+            else if (boxRegion.SelectedItem == "Ege")
+            {
+                boxCity.Items.Add("İzmir");
+                boxCity.Items.Add("Manisa");
+                boxCity.Items.Add("Aydın");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string region = (string)boxRegion.SelectedItem;
+            string city = (string)boxCity.SelectedItem;
+
+            MessageBox.Show("Seçilen bölge: "+ region + "\nSeçilen Şehir: "+city);
+        }
+    }
+}
